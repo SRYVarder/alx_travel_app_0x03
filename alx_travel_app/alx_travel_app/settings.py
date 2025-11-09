@@ -4,8 +4,8 @@ from pathlib import Path
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = 'django-insecure-example'
-DEBUG = True
-ALLOWED_HOSTS = []
+DEBUG = False
+ALLOWED_HOSTS = ['alxtravelapp.onrender.com', 'www.sryalxtravelapp.com']
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -67,6 +67,10 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 DEFAULT_FROM_EMAIL = 'no-reply@alxtravel.com'
+
+# Security
+CSRF_TRUSTED_ORIGINS = ['https://alxtravelapp.onrender.com']
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 # Celery Configuration
 CELERY_BROKER_URL = 'amqp://localhost'
